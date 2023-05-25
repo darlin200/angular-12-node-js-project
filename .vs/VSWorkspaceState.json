@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\angular-12-client",
+    "\\angular-12-client\\src",
+    "\\angular-12-client\\src\\app",
+    "\\angular-12-client\\src\\app\\components",
+    "\\angular-12-client\\src\\app\\components\\tutorial-details",
+    "\\node-js-server",
+    "\\node-js-server\\app",
+    "\\node-js-server\\app\\controllers",
+    "\\node-js-server\\app\\data"
+  ],
+  "SelectedNode": "\\node-js-server\\server.js",
+  "PreviewInSolutionExplorer": false
+}
