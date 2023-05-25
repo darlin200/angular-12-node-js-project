@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Tutorial } from 'src/app/models/tutorial.model';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -14,7 +16,8 @@ export class TutorialsListComponent implements OnInit {
   currentIndex = -1;
   title = '';
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private tutorialService: TutorialService,
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.retrieveTutorials();
@@ -25,7 +28,7 @@ export class TutorialsListComponent implements OnInit {
       .subscribe(
         data => {
           this.tutorials = data;
-          console.log(data);
+          console.log(data, '2');
         },
         error => {
           console.log(error);
@@ -44,15 +47,7 @@ export class TutorialsListComponent implements OnInit {
   }
 
   removeAllTutorials(): void {
-    this.tutorialService.deleteAll()
-      .subscribe(
-        response => {
-          console.log(response);
-          this.refreshList();
-        },
-        error => {
-          console.log(error);
-        });
+    this.authenticationService.logout();
   }
 
   searchTitle(): void {
