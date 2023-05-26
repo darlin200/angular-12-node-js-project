@@ -10,7 +10,9 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { UserReducer } from './state/auth.reducer';
+import { reducer } from './state/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './state/auth.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { UserReducer } from './state/auth.reducer';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ user: UserReducer })
+    StoreModule.forRoot(reducer, {}),
+    EffectsModule.forRoot([AuthEffects])
   ],
   exports: [
     FormsModule,

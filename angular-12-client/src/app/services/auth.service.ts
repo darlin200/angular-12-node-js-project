@@ -28,7 +28,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     // post to fake back end, this url will be handled there...
-
+    console.log('fff');
     return this.http
       .post<any>(`${this.baseUrl}/auth/login`, { username, password })
       .pipe(
